@@ -1099,20 +1099,27 @@ type DirectListResponse struct {
 					ItemID    string `json:"item_id"`
 				} `json:"4178028611"`
 			} `json:"last_seen_at"`
-			ViewerID     int64            `json:"viewer_id"`
-			OldestCursor string           `json:"oldest_cursor"`
-			LeftUsers    []interface{}    `json:"left_users"`
-			ThreadID     string           `json:"thread_id"`
-			Inviter      User             `json:"inviter"`
-			ThreadTitle  string           `json:"thread_title"`
-			Items        []ItemMediaShare `json:"items"`
-			Muted        bool             `json:"muted"`
-			Pending      bool             `json:"pending"`
-			HasOlder     bool             `json:"has_older"`
-			Canonical    bool             `json:"canonical"`
-			HasNewer     bool             `json:"has_newer"`
-			Named        bool             `json:"named"`
-			Users        []struct {
+			ViewerID     int64         `json:"viewer_id"`
+			OldestCursor string        `json:"oldest_cursor"`
+			LeftUsers    []interface{} `json:"left_users"`
+			ThreadID     string        `json:"thread_id"`
+			Inviter      User          `json:"inviter"`
+			ThreadTitle  string        `json:"thread_title"`
+			Items        []struct {
+				UserID        int64  `json:"user_id"`
+				Text          string `json:"text"`
+				ItemType      string `json:"item_type"`
+				Timestamp     int64  `json:"timestamp"`
+				ItemID        string `json:"item_id"`
+				ClientContext string `json:"client_context"`
+			} `json:"items"`
+			Muted     bool `json:"muted"`
+			Pending   bool `json:"pending"`
+			HasOlder  bool `json:"has_older"`
+			Canonical bool `json:"canonical"`
+			HasNewer  bool `json:"has_newer"`
+			Named     bool `json:"named"`
+			Users     []struct {
 				Username         string `json:"username"`
 				IsPrivate        bool   `json:"is_private"`
 				FriendshipStatus struct {
